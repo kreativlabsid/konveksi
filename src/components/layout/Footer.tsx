@@ -2,32 +2,32 @@ import { Factory, Globe, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/5">
+    <footer className="bg-primary text-white pt-16 pb-10">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/5">
           <div className="lg:col-span-5">
-            <div className="text-xl font-black font-heading mb-6 text-white flex items-center gap-2">
-              <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center">
-                <Factory className="text-white h-4 w-4" />
+            <div className="text-lg lg:text-xl font-black font-heading mb-5 text-white flex items-center gap-2">
+              <div className="w-7 h-7 bg-secondary rounded-lg flex items-center justify-center">
+                <Factory className="text-white h-3.5 w-3.5" />
               </div>
               Konveksi<span className="text-secondary">Pro</span>
             </div>
-            <p className="text-slate-400 font-medium text-base leading-relaxed mb-8 max-w-md">
+            <p className="text-slate-400 font-medium text-sm lg:text-base leading-relaxed mb-6 max-w-sm">
               Partner produksi garment terpercaya untuk kualitas skala industri dengan sentuhan presisi butik.
             </p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
-                <Globe className="h-4 w-4 text-white/50 group-hover:text-white transition-colors" />
+            <div className="flex gap-3">
+              <a className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
+                <Globe className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-colors" />
               </a>
-              <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
-                <Mail className="h-4 w-4 text-white/50 group-hover:text-white transition-colors" />
+              <a className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
+                <Mail className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-colors" />
               </a>
-              <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
-                <Phone className="h-4 w-4 text-white/50 group-hover:text-white transition-colors" />
+              <a className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all group" href="#">
+                <Phone className="h-3.5 w-3.5 text-white/50 group-hover:text-white transition-colors" />
               </a>
             </div>
           </div>
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div className="space-y-8">
               <h5 className="font-heading font-bold text-xs tracking-[0.2em] uppercase text-secondary">Company</h5>
               <ul className="space-y-4">

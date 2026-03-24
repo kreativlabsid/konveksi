@@ -11,54 +11,54 @@ const IMAGES = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 px-6 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="font-heading font-bold text-4xl text-primary mb-4 tracking-tight">Industrial Impact</h2>
-          <p className="text-on-surface-variant text-base font-medium max-w-2xl mx-auto">Membangun ekosistem produksi yang berkelanjutan untuk mitra bisnis kami di seluruh Indonesia.</p>
+    <section id="portfolio" className="py-12 lg:py-16 px-4 lg:px-6 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-3 tracking-tight">Industrial Impact</h2>
+          <p className="text-on-surface-variant text-sm md:text-base font-medium max-w-xl mx-auto">Membangun ekosistem produksi yang berkelanjutan untuk mitra bisnis kami di seluruh Indonesia.</p>
         </div>
         
         {/* Modern Stats Banner */}
-        <div className="bg-primary rounded-[2rem] p-10 lg:p-16 mb-20 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full -mr-64 -mt-64 blur-[120px]"></div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
+        <div className="bg-primary rounded-[1.5rem] p-8 lg:p-12 mb-16 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-secondary/10 rounded-full -mr-32 -mt-32 blur-[80px]"></div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             <div className="text-center lg:text-left">
-              <div className="text-5xl font-heading font-extrabold text-white mb-2">10K<span className="text-secondary">+</span></div>
-              <div className="text-slate-400 text-[10px] font-bold tracking-[0.2em] uppercase">Units Monthly</div>
+              <div className="text-4xl font-heading font-extrabold text-white mb-1.5">10K<span className="text-secondary">+</span></div>
+              <div className="text-slate-400 text-[9px] font-bold tracking-[0.2em] uppercase">Units Monthly</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-5xl font-heading font-extrabold text-white mb-2">50<span className="text-secondary">+</span></div>
-              <div className="text-slate-400 text-[10px] font-bold tracking-[0.2em] uppercase">Enterprise Clients</div>
+              <div className="text-4xl font-heading font-extrabold text-white mb-1.5">50<span className="text-secondary">+</span></div>
+              <div className="text-slate-400 text-[9px] font-bold tracking-[0.2em] uppercase">Enterprise Clients</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-5xl font-heading font-extrabold text-white mb-2">15<span className="text-secondary">+</span></div>
-              <div className="text-slate-400 text-[10px] font-bold tracking-[0.2em] uppercase">Production Years</div>
+              <div className="text-4xl font-heading font-extrabold text-white mb-1.5">15<span className="text-secondary">+</span></div>
+              <div className="text-slate-400 text-[9px] font-bold tracking-[0.2em] uppercase">Production Years</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-5xl font-heading font-extrabold text-white mb-2">99<span className="text-secondary">%</span></div>
-              <div className="text-slate-400 text-[10px] font-bold tracking-[0.2em] uppercase">Client Retention</div>
+              <div className="text-4xl font-heading font-extrabold text-white mb-1.5">99<span className="text-secondary">%</span></div>
+              <div className="text-slate-400 text-[9px] font-bold tracking-[0.2em] uppercase">Client Retention</div>
             </div>
           </div>
         </div>
 
         {/* Masonry Portfolio Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 auto-rows-[240px]">
-          <div className="row-span-2 rounded-[2rem] overflow-hidden group">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[180px]">
+          <div className="row-span-2 rounded-[1.5rem] overflow-hidden group">
             <img alt="Production" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[0]} />
           </div>
-          <div className="col-span-2 rounded-[2rem] overflow-hidden group">
+          <div className="col-span-2 rounded-[1.5rem] overflow-hidden group">
             <img alt="Warehouse" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[1]} />
           </div>
-          <div className="row-span-1 rounded-[2rem] overflow-hidden group">
+          <div className="row-span-1 rounded-[1.5rem] overflow-hidden group">
             <img alt="Tailoring" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[2]} />
           </div>
-          <div className="row-span-2 rounded-[2rem] overflow-hidden group">
+          <div className="row-span-2 rounded-[1.5rem] overflow-hidden group">
             <img alt="Product" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[3]} />
           </div>
-          <div className="col-span-1 rounded-[2rem] overflow-hidden group">
+          <div className="col-span-1 rounded-[1.5rem] overflow-hidden group">
             <img alt="Packaging" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[4]} />
           </div>
-          <div className="row-span-1 rounded-[2rem] overflow-hidden group">
+          <div className="row-span-1 rounded-[1.5rem] overflow-hidden group">
             <img alt="Embroidery" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src={IMAGES[5]} />
           </div>
         </div>
