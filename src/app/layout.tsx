@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "Prototype B2B Konveksi landing page",
 };
 
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +30,11 @@ export default function RootLayout({
       lang="id"
       className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="font-sans min-h-full flex flex-col">{children}</body>
+      <body className="font-sans min-h-full flex flex-col">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

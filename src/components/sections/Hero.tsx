@@ -24,11 +24,11 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-            <Link href="#katalog" className="bg-primary text-white px-6 py-3 rounded-full font-heading font-bold text-[13px] transition-all flex items-center gap-2 group hover:pr-8 shadow-md shadow-primary/20">
+            <Link href="/katalog" className="bg-primary text-white px-6 py-3 rounded-full font-heading font-bold text-[13px] transition-all flex items-center gap-2 group hover:pr-8 shadow-md shadow-primary/20">
               Lihat Katalog
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href="#lacak" className="bg-white border border-outline-variant hover:border-primary text-primary px-6 py-3 rounded-full font-heading font-bold text-[13px] transition-all flex items-center gap-2">
+            <Link href="/#lacak" className="bg-white border border-outline-variant hover:border-primary text-primary px-6 py-3 rounded-full font-heading font-bold text-[13px] transition-all flex items-center gap-2">
               <Search className="h-4 w-4" />
               Lacak Pesanan
             </Link>

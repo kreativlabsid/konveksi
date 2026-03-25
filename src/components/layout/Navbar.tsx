@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Factory } from "lucide-react";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <nav className="fixed top-0 w-full z-50 glass border-b border-white/20">
       <div className="flex justify-between items-center px-4 lg:px-8 py-3 max-w-6xl mx-auto">
@@ -17,16 +20,28 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-secondary font-heading font-bold text-[13px] tracking-wide">
+          <Link 
+            href="/" 
+            className={`${pathname === '/' ? 'text-secondary' : 'text-on-surface-variant hover:text-primary'} font-heading font-bold text-[13px] tracking-wide transition-colors`}
+          >
             Home
           </Link>
-          <Link href="#katalog" className="text-on-surface-variant hover:text-primary font-heading font-bold text-[13px] tracking-wide transition-colors">
+          <Link 
+            href="/katalog" 
+            className={`${pathname?.startsWith('/katalog') ? 'text-secondary' : 'text-on-surface-variant hover:text-primary'} font-heading font-bold text-[13px] tracking-wide transition-colors`}
+          >
             Katalog
           </Link>
-          <Link href="#portfolio" className="text-on-surface-variant hover:text-primary font-heading font-bold text-[13px] tracking-wide transition-colors">
+          <Link 
+            href="/#portfolio" 
+            className="text-on-surface-variant hover:text-primary font-heading font-bold text-[13px] tracking-wide transition-colors"
+          >
             Portfolio
           </Link>
-          <Link href="#lacak" className="text-on-surface-variant hover:text-primary font-heading font-bold text-[13px] tracking-wide transition-colors">
+          <Link 
+            href="/#lacak" 
+            className="text-on-surface-variant hover:text-primary font-heading font-bold text-[13px] tracking-wide transition-colors"
+          >
             Lacak Pesanan
           </Link>
         </div>
