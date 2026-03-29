@@ -145,28 +145,28 @@ export default function BookingForm() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Progress Bar */}
-      <div className="glass rounded-2xl p-4 md:p-5 card-shadow">
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-medium text-on-surface-variant">
-            Langkah {currentStep} dari {STEPS.length}
+    <div className="bg-white rounded-3xl shadow-xl shadow-primary/5 border border-outline-variant/50 overflow-hidden flex flex-col relative w-full mb-20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      {/* Progress Header Area */}
+      <div className="bg-surface/50 px-5 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-5 border-b border-outline-variant/40">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+            Langkah {currentStep} <span className="opacity-40">/</span> {STEPS.length}
           </span>
-          <span className="text-xs font-medium text-secondary">
+          <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-full">
             {Math.round((currentStep / STEPS.length) * 100)}%
           </span>
         </div>
 
         {/* Progress track */}
-        <div className="relative h-1.5 bg-outline-variant/40 rounded-full overflow-hidden mb-5">
+        <div className="relative h-2 bg-outline-variant/40 rounded-full overflow-hidden mb-6">
           <div
-            className="absolute inset-y-0 left-0 bg-gradient-to-r from-secondary to-secondary/80 rounded-full transition-all duration-500 ease-out"
+            className="absolute inset-y-0 left-0 bg-secondary rounded-full transition-all duration-700 ease-in-out"
             style={{ width: `${(currentStep / STEPS.length) * 100}%` }}
           />
         </div>
 
         {/* Step indicators */}
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center relative px-1 sm:px-2">
           {STEPS.map((step, index) => {
             const Icon = STEP_ICONS[index];
             const isActive = currentStep === step.id;
@@ -179,37 +179,39 @@ export default function BookingForm() {
                 onClick={() => {
                   if (isCompleted || isActive) goToStep(step.id);
                 }}
-                className={`flex flex-col items-center gap-1.5 transition-all duration-300 group ${
+                className={`flex flex-col items-center gap-2 transition-all duration-300 group outline-none ${
                   isCompleted || isActive
                     ? "cursor-pointer"
-                    : "cursor-default opacity-40"
+                    : "cursor-default opacity-50"
                 }`}
+                aria-label={`Go to step ${step.id}`}
               >
                 <div
-                  className={`flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl transition-all duration-300 ${
+                  className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full transition-all duration-300 ${
                     isActive
-                      ? "bg-secondary text-white shadow-lg shadow-secondary/25 scale-110"
+                      ? "bg-secondary text-white shadow-md shadow-secondary/30 ring-4 ring-secondary/10"
                       : isCompleted
                         ? "bg-secondary/15 text-secondary"
-                        : "bg-surface-variant text-on-surface-variant"
+                        : "bg-surface-variant/80 text-on-surface-variant/70"
                   }`}
                 >
                   {isCompleted ? (
-                    <Check className="size-4" />
+                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3]" />
                   ) : (
-                    <Icon className="size-4" />
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   )}
                 </div>
+                {/* Hide text on very small screens to avoid clutter */}
                 <span
-                  className={`text-[10px] md:text-xs font-medium transition-colors hidden sm:block ${
+                  className={`text-[9px] sm:text-[10px] font-bold transition-colors hidden sm:block tracking-wide ${
                     isActive
                       ? "text-secondary"
                       : isCompleted
-                        ? "text-primary/70"
+                        ? "text-primary/80"
                         : "text-on-surface-variant/60"
                   }`}
                 >
-                  {step.shortTitle}
+                   {step.shortTitle}
                 </span>
               </button>
             );
@@ -217,41 +219,45 @@ export default function BookingForm() {
         </div>
       </div>
 
-      {/* Step Content */}
-      <div className="glass rounded-2xl p-5 md:p-7 card-shadow">
-        <div className="mb-6">
-          <h2 className="font-heading text-lg md:text-xl font-semibold text-primary">
+      {/* Step Content Area */}
+      <div className="p-5 sm:p-8 md:p-10 flex-1 bg-white">
+        <div className="mb-8">
+          <h2 className="font-heading text-xl sm:text-2xl font-bold text-primary tracking-tight">
             {STEPS[currentStep - 1].title}
           </h2>
-          <div className="mt-1.5 h-0.5 w-10 rounded-full bg-secondary" />
+          <div className="mt-3 h-1 w-12 rounded-full bg-secondary" />
         </div>
 
-        <div className="min-h-[300px]">{renderStep()}</div>
+        <div className="min-h-[350px]">
+          {renderStep()}
+        </div>
+
+        {/* Validation Error Summary */}
+        {showErrors && Object.keys(errors).length > 0 && (
+          <div className="flex items-start gap-3 p-4 mt-8 rounded-xl bg-red-50/80 border border-red-100/80 text-red-800 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-red-500" />
+            <div>
+              <p className="text-sm font-bold">Ada {Object.keys(errors).length} isian yang belum lengkap</p>
+              <p className="text-xs mt-1 text-red-700/80 leading-relaxed">
+                Mohon lengkapi semua field bertanda (*) sebelum melanjutkan.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Validation Error Summary */}
-      {showErrors && Object.keys(errors).length > 0 && (
-        <div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700">
-          <AlertCircle className="size-4 shrink-0 mt-0.5" />
-          <div>
-            <p className="text-sm font-medium">Ada {Object.keys(errors).length} field yang perlu dilengkapi</p>
-            <p className="text-xs mt-0.5 text-red-600/70">Lengkapi semua field bertanda (*) sebelum melanjutkan.</p>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation */}
+      {/* Navigation Footer */}
       {!isSubmitted && (
-        <div className="flex items-center justify-between">
+        <div className="bg-surface-variant/20 px-5 py-4 sm:px-8 sm:py-5 border-t border-outline-variant/40 flex items-center justify-between">
           <Button
             type="button"
             variant="outline"
             size="lg"
             onClick={goBack}
             disabled={currentStep === 1}
-            className="gap-1.5 px-5 h-11 rounded-xl"
+            className={`gap-2 px-5 h-11 sm:h-12 rounded-xl border-outline-variant/60 hover:bg-surface-variant/60 transition-all font-semibold ${currentStep === 1 ? 'opacity-0 pointer-events-none' : ''}`}
           >
-            <ChevronLeft className="size-4" />
+            <ChevronLeft className="w-4 h-4" />
             Kembali
           </Button>
 
@@ -261,10 +267,10 @@ export default function BookingForm() {
               variant="secondary"
               size="lg"
               onClick={goNext}
-              className="gap-1.5 px-6 h-11 rounded-xl text-white font-semibold shadow-lg shadow-secondary/25 hover:shadow-secondary/35 hover:scale-[1.02] transition-all"
+              className="gap-2 px-6 sm:px-8 h-11 sm:h-12 rounded-xl text-white font-bold tracking-wide shadow-lg shadow-secondary/25 hover:shadow-secondary/40 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300"
             >
               Lanjutkan
-              <ChevronRight className="size-4" />
+              <ChevronRight className="w-4 h-4" />
             </Button>
           ) : (
             <Button
@@ -272,9 +278,9 @@ export default function BookingForm() {
               variant="secondary"
               size="lg"
               onClick={handleSubmit}
-              className="gap-1.5 px-6 h-11 rounded-xl text-white font-semibold shadow-lg shadow-secondary/25 hover:shadow-secondary/35 hover:scale-[1.02] transition-all"
+              className="gap-2 px-6 sm:px-8 h-11 sm:h-12 rounded-xl text-white font-bold tracking-wide shadow-lg shadow-secondary/25 hover:shadow-secondary/40 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300"
             >
-              <Check className="size-4" />
+              <Check className="w-4 h-4" />
               Kirim Pesanan
             </Button>
           )}

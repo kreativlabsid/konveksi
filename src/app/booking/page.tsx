@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function BookingPage() {
   return (
-    <main className="flex-1 bg-surface">
+    <main className="flex-1 bg-surface relative overflow-x-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative py-8 md:py-12">
+      <div className="relative pt-24 pb-8 md:pt-32 md:pb-12">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           {/* Header */}
           <div className="text-center mb-8 md:mb-10">
